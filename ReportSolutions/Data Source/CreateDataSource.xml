@@ -1,8 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="ba4662ab-dea5-4efd-9abd-28bc49fedb67" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="CreateDataSource" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testStep type="restrequest" name="CreateDataSource DS001" id="5989340b-43f5-4509-addd-e6d2199c78ca"><con:settings/><con:config service="DataSource" resourcePath="/CreateDataSource" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateDataSource DS001" id="f2a329c1-c1a2-471a-a3e2-113fa1961672" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="auth" value="$2a$10$Atti98RVAO0Qcmgg5z.hBOmsZ.YI9AFhPK0tQRXkUZ8WWYhxzLLI2" xmlns:con="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://xataapi.azurewebsites.net/api/v1.0.0</con:endpoint><con:request>{"ID":"","DSID":"DS001","Name":"DS 001","Label":"Datasource","TemplateID":"Te1","Description":"Datasource Description"}</con:request><con:originalUri>https://xataapi.azurewebsites.net/api/v1.0.0/CreateDataSource</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2e86e97e-bfdb-4b14-947c-306035c0fd31" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="928ee8db-9a88-4200-80fa-97147c68890a" name="Response SLA"><con:configuration><SLA>5000</SLA></con:configuration></con:assertion><con:assertion type="DataAndMetadataAssertion" id="10a261e4-a944-44b7-9a49-30cf3156db53" name="Smart Assertion"><con:configuration xsi:type="con:DataAndMetadataAssertion"><con:mode>Received Data</con:mode><con:elements><con:path>$['status']</con:path><con:element>status</con:element><con:operatorId>1</con:operatorId><con:enabled>true</con:enabled><con:expectedValue>Success</con:expectedValue><con:caseSensitive>true</con:caseSensitive><con:numberType>false</con:numberType><con:expectedDataType>1</con:expectedDataType></con:elements><con:elements><con:path>$['Code']</con:path><con:element>Code</con:element><con:operatorId>1</con:operatorId><con:enabled>true</con:enabled><con:expectedValue>200</con:expectedValue><con:caseSensitive>true</con:caseSensitive><con:numberType>false</con:numberType><con:expectedDataType>1</con:expectedDataType></con:elements><con:elements><con:path>$['result']</con:path><con:element>result</con:element><con:operatorId>1</con:operatorId><con:enabled>true</con:enabled><con:expectedValue>Record updated successfully.</con:expectedValue><con:caseSensitive>true</con:caseSensitive><con:numberType>false</con:numberType><con:expectedDataType>1</con:expectedDataType></con:elements><con:elements><con:path>$['HttpCode']</con:path><con:element>HttpCode</con:element><con:operatorId>1</con:operatorId><con:enabled>true</con:enabled><con:expectedValue>null</con:expectedValue><con:caseSensitive>true</con:caseSensitive><con:numberType>false</con:numberType><con:expectedDataType>4</con:expectedDataType></con:elements><con:elements><con:path>$['HttpMessage']</con:path><con:element>HttpMessage</con:element><con:operatorId>1</con:operatorId><con:enabled>true</con:enabled><con:expectedValue>null</con:expectedValue><con:caseSensitive>true</con:caseSensitive><con:numberType>false</con:numberType><con:expectedDataType>4</con:expectedDataType></con:elements><con:originalMessage>{&#13;
-  "status": "Success",&#13;
-  "Code": "200",&#13;
-  "result": "Record updated successfully.",&#13;
-  "HttpCode": null,&#13;
-  "HttpMessage": null&#13;
-}</con:originalMessage></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>
+<con:testCase id="ba4662ab-dea5-4efd-9abd-28bc49fedb67" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="CreateDataSource" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings/>
+      <con:testStep type="restrequest" name="CreateDataSource DS001" id="5989340b-43f5-4509-addd-e6d2199c78ca">
+        <con:settings/>
+        <con:config service="DataSource" resourcePath="/CreateDataSource" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="CreateDataSource DS001" id="f2a329c1-c1a2-471a-a3e2-113fa1961672" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="auth" value="${#Project#LoginKey}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>https://xataapi.azurewebsites.net/api/v1.0.0</con:endpoint>
+            <con:request>{"ID":"","DSID":"DS001","Name":"DS 001","Label":"Datasource","TemplateID":"Te1","Description":"Datasource Description"}</con:request>
+            <con:originalUri>https://xataapi.azurewebsites.net/api/v1.0.0/CreateDataSource</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2e86e97e-bfdb-4b14-947c-306035c0fd31" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="928ee8db-9a88-4200-80fa-97147c68890a" name="Response SLA">
+              <con:configuration>
+                <SLA>8000</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="DataAndMetadataAssertion" id="10a261e4-a944-44b7-9a49-30cf3156db53" name="Smart Assertion">
+              <con:configuration xsi:type="con:DataAndMetadataAssertion">
+                <con:mode>Received Data</con:mode>
+                <con:elements>
+                  <con:path>$['status']</con:path>
+                  <con:element>status</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Success</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['Code']</con:path>
+                  <con:element>Code</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>200</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['result']</con:path>
+                  <con:element>result</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Record updated successfully.</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['HttpCode']</con:path>
+                  <con:element>HttpCode</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>null</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>4</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['HttpMessage']</con:path>
+                  <con:element>HttpMessage</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>null</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>4</con:expectedDataType>
+                </con:elements>
+                <con:originalMessage>{
+  "status": "Success",
+  "Code": "200",
+  "result": "Record updated successfully.",
+  "HttpCode": null,
+  "HttpMessage": null
+}</con:originalMessage>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes><con:addedBasicAuthenticationTypes>SPNEGO/Kerberos</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>

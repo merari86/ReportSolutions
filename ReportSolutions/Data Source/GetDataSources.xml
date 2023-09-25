@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="9875b8e4-abaf-4189-b769-e90c693d0a2f" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="GetDataSources" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testStep type="restrequest" name="REST Request" id="8f406ae2-5712-4b12-8634-33a53812d180"><con:settings/><con:config service="DataSource" resourcePath="/GetDataSources" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Request" id="5855ca38-2b78-49f4-8e3e-7907c124dd55" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="auth" value="$2a$10$Atti98RVAO0Qcmgg5z.hBOmsZ.YI9AFhPK0tQRXkUZ8WWYhxzLLI2" xmlns:con="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>https://xataapi.azurewebsites.net/api/v1.0.0</con:endpoint><con:request/><con:originalUri>https://xataapi.azurewebsites.net/api/v1.0.0/GetDataSources</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="815f1528-4833-42a5-ac8b-05fbdf8da1e9" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="fddac4c7-c176-4eef-8fa5-b64555a57187" name="Response SLA"><con:configuration><SLA>6000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>
+<con:testCase id="9875b8e4-abaf-4189-b769-e90c693d0a2f" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="GetDataSources" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings/>
+      <con:testStep type="restrequest" name="GetDataSource DS001" id="8f406ae2-5712-4b12-8634-33a53812d180">
+        <con:settings/>
+        <con:config service="DataSource" resourcePath="/GetDataSources" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GetDataSource DS001" id="5855ca38-2b78-49f4-8e3e-7907c124dd55" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="auth" value="${#Project#LoginKey}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>https://xataapi.azurewebsites.net/api/v1.0.0</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://xataapi.azurewebsites.net/api/v1.0.0/GetDataSources</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="815f1528-4833-42a5-ac8b-05fbdf8da1e9" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="fddac4c7-c176-4eef-8fa5-b64555a57187" name="Response SLA">
+              <con:configuration><SLA>50000</SLA></con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      
+      <con:testStep type="transfer" name="Store Data Source ID" id="a98b6974-85e8-433e-a1c9-4d4b36590f57"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ID</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetDataSource DS001</con:sourceStep><con:sourcePath/><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties/>
+      <con:reportParameters/>
+    </con:testCase>

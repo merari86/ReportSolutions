@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="7f8479f3-f3d9-452d-8bfa-5534cc2adfaf" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Login" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Login Request" id="931db479-f75a-42e9-8d3b-4bd85f296dcc">
+        <con:settings/>
+        <con:config service="Login  API" resourcePath="/api/v1.0.0/AuthLogin" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Login Request" id="ea898e79-eb18-4f6a-8a7e-7beb9bb2c825" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="AppAuth" value="7FVXMVSOPFHVJM1NLR6ZRQSCTKHR3CB5XLR7DPMFG6017VG8BGL05FLRXSEBOBVM" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:endpoint>https://xataapi.azurewebsites.net</con:endpoint>
+            <con:request>{\r
+   "username" : "jake.majerovic@thinkless.digital",\r
+   "password" : "123456",\r
+   "logtype" : "normal",\r
+   "AccountType" : "Organisation",\r
+   "GetOrganisation" : false,\r
+   "Loginto" : "studio",\r
+   "NetworkId" : ""\r
+}</con:request>
+            <con:originalUri>https://xataapi.azurewebsites.net/api/v1.0.0/AuthLogin</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3b7a7327-9591-4fda-b6a2-bcfea8bca1e4" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="8dfd47b0-a235-4045-9276-71144fba307a" name="Response SLA">
+              <con:configuration>
+                <SLA>11000</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Store Key" id="b213d5a6-3685-413e-9f69-4d7af5453e9f"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="true" entitize="false" transferChildNodes="false"><con:name>Key</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Login Request</con:sourceStep><con:sourcePath>$['key']</con:sourcePath><con:targetType>LoginKey</con:targetType><con:targetStep>#Project#</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:targetTransferType>JSONPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>931db479-f75a-42e9-8d3b-4bd85f296dcc</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
